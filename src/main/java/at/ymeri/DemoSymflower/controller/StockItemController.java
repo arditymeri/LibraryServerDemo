@@ -25,7 +25,9 @@ public class StockItemController {
     @GetMapping("/stockItems")
     public ResponseEntity<List<StockItemDto>> getAvailableStockItems(String bookId) {
         List<StockItem> items = stockService.findAllStockItemsByBookId(bookId);
-        List<StockItemDto> itemsDto = items.stream().map(StockItemMapper.INSTANCE::stockItemToStockItemDto).toList();
+        List<StockItemDto> itemsDto = items.stream()
+                .map(StockItemMapper.INSTANCE::stockItemToStockItemDto)
+                .toList();
         return ResponseEntity.of(Optional.of(itemsDto));
     }
 
@@ -33,7 +35,5 @@ public class StockItemController {
     public ResponseEntity<String> addStockItem(String bookId, Address address) {
         stockService.addStockItem(bookId, address);
         return ResponseEntity.status(200).body("OK");
-
-
     }
 }
