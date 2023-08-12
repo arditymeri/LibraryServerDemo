@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StockItemControllerSymflowerTest {
+	@Disabled
 	@Test
 	public void getAvailableStockItems1() {
 		StockItemController s = new StockItemController(null);

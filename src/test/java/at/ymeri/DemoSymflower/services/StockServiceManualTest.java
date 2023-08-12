@@ -2,6 +2,7 @@ package at.ymeri.DemoSymflower.services;
 
 import at.ymeri.DemoSymflower.model.Address;
 import at.ymeri.DemoSymflower.model.Book;
+import at.ymeri.DemoSymflower.model.Reader;
 import at.ymeri.DemoSymflower.model.StockItem;
 import at.ymeri.DemoSymflower.repo.BookRepository;
 import at.ymeri.DemoSymflower.repo.ReaderRepository;
@@ -10,6 +11,7 @@ import at.ymeri.DemoSymflower.repo.StockItemRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +52,7 @@ public class StockServiceManualTest {
         Book book = new Book("", "", "", "", "", List.of());
         when(bookRepository.findById(any())).thenReturn(Optional.of(book));
         when(stockItemRepository.findByBookId(any())).thenReturn(List.of(new StockItem("", 0, book, new Address("", "", "", "", ""))));
+        when(readerRepository.findById(any())).thenReturn(Optional.of(new Reader("", "Reader", "LastName", "Reader@Reader.com", Collections.emptyList())));
 
         stockService.rentStockItem("bookId", "readerId");
 

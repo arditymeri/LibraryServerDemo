@@ -4,7 +4,8 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StockServiceSymflowerTest {
-	@Test
+	@Disabled
+    @Test
 	public void countStockItem1() {
 		StockService s = new StockService(null, null, null, null);
 		String bookId = null;

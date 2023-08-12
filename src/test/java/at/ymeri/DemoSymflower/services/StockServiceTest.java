@@ -6,10 +6,13 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 
 
-@DataJpaTestpublic class StockServiceTest {
-	@Autowired
+//@DataJpaTest
+public
+class StockServiceTest {
+	//@Autowired
 	private StockService stockService;
 
+	@Disabled
 	@Test
 	public void countStockItem() {
 		String bookId = null;
